@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Privacy · What's my size?</title>
-<meta name="description" content="What data What's my size? uses, where it goes, and what it never does.">
+<meta name="description" content="What data the What's my size? Chrome extension uses, where it goes, and what it never does.">
 <link rel="icon" href="logo.png">
 <link rel="stylesheet" href="/fonts/fonts.css">
 <style>
@@ -18,9 +18,11 @@ h1{font-size:30px;letter-spacing:-.01em;margin:0 0 8px}
 h2{font-size:20px;margin:32px 0 8px}
 p,li{max-width:34em}
 p{margin:0 0 14px}
-ul{margin:0 0 14px;padding-left:22px}
+ul,ol{margin:0 0 14px;padding-left:22px}
 li{margin-bottom:6px}
-.date{color:var(--muted);font-size:15px}
+code{font-size:15px}
+.date,.lang{color:var(--muted);font-size:15px}
+hr{border:0;border-top:1px solid var(--line);margin:56px 0}
 footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:15px}
 a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
 </style>
@@ -28,45 +30,135 @@ a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
 <body>
 <main>
   <h1>Privacy policy</h1>
-  <p class="date">What's my size? · Last updated 24 October 2026</p>
+  <p class="date">What's my size? · Last updated 25 October 2026</p>
+  <p class="lang"><a href="#fr" hreflang="fr">Lire en français</a></p>
 
-  <p>What's my size? is made by AlephB. It works out your clothing size from clothes you already bought. Your data stays in your own Google account, in your browser, or on your computer. AlephB has no server for this software and never receives your data. It has no analytics, tracking or ads.</p>
+  <p>What's my size? is a Chrome extension made by AlephB. It shows which size to buy on clothing product pages by comparing the garment with clothes you already own. Your wardrobe is kept in a Google Sheet in your own Google Drive. AlephB has no server for this extension and never receives your wardrobe, your emails or the pages you visit. The extension shows no ads.</p>
 
-  <h2>Google data it uses</h2>
+  <h2>What it reads on websites</h2>
+  <p>The extension looks at each page you open to tell whether it is a clothing product page or a shop's order page. On any other page it stops there.</p>
   <ul>
-    <li>Gmail, read-only: a sync program on your own computer reads the order and return emails in one Gmail label you choose. It never sends, changes or deletes mail. The browser extension uses Gmail access only to check that the Gmail API is turned on.</li>
-    <li>Google Sheets: your purchases, size charts, fit notes, saved outfits and wishlist are kept in a spreadsheet in your own Google Drive. The extension reads and writes that spreadsheet only.</li>
-    <li>Google Drive, only the files it creates: outfit pictures you like are saved to a folder it creates in your Drive. It cannot see your other files.</li>
+    <li>On a product page, it reads the size chart, the product's name, brand, photo, price and the sizes on sale, in your browser, to show you which size to take.</li>
+    <li>When you press Add to wardrobe, Wishlist or Save this chart in the size panel, it saves that garment (and its size chart) to your Sheet.</li>
+    <li>When you press "Add this order to my wardrobe" on a shop's order page, or "Read my orders" on the Stores page, it reads that shop's order pages using the session you signed in to yourself. You check the lines before anything is saved.</li>
   </ul>
+  <p>The extension never sees your passwords. You sign in to shops yourself.</p>
 
-  <h2>What is sent to AI providers</h2>
-  <p>Some features call Anthropic (Claude) or Google (Gemini) using API keys that you add yourself. Without a key, those features are off and the rest still works.</p>
+  <h2>Access to shop sites</h2>
+  <p>Some features need to load a shop's pages in the background. Chrome asks you first, one site at a time, when you click to:</p>
   <ul>
-    <li>Reading order emails: the email text and product photos go to Anthropic to list the garments you bought. Your name, address, email address, phone number and card digits are removed first.</li>
-    <li>Size charts shown as images: the image goes to Anthropic so it can read the measurements.</li>
-    <li>Finding and checking garment photos: the brand, item name and colour go to Anthropic for a web search. Candidate photos go to Gemini to check they show the right garment.</li>
-    <li>Outfits and shopping ideas: garment descriptions and photos from your spreadsheet go to Gemini, and search requests go to Anthropic.</li>
-    <li>Reading orders from a shop account, only when you click it and in a tab where you signed in yourself: the page text, with personal details removed, goes to Anthropic.</li>
+    <li>read your orders on a shop's site, or find the page of a shop that lists them;</li>
+    <li>find a photo for a garment, or check a garment against its product page (Double-check online), on the shop you bought it from or the brand's own shop;</li>
+    <li>show a shop's logo.</li>
   </ul>
-  <p>Each provider handles this data under its own API terms.</p>
+  <p>On sites you have already allowed, and only there, the extension may also run these lookups for a few new garments a day. It reads the product data the shop publishes (names, colours, sizes, photos). Nothing it finds is written to your Sheet until you accept it, except a missing colour or photo put into an empty cell, which you can undo from the wardrobe's To do list.</p>
 
-  <h2>What stays in your browser</h2>
-  <p>Product pages are read in your browser to find the size chart. Settings, your API keys and a copy of your spreadsheet are kept in Chrome's local extension storage on your computer.</p>
+  <h2>Importing order emails from Gmail</h2>
+  <p>The extension asks Google for no Gmail permission. When you choose to import, it opens Gmail in a tab of your own browser, signed in as you, and reads that tab the way you would. Once you have agreed to how it works and pressed Start:</p>
+  <ul>
+    <li>it looks for order and return emails (from the last two years the first time, then only newer ones);</li>
+    <li>Chrome's built-in AI model reads the emails that mention a clothing size, on your computer, and finds each item's brand, size, colour, date and shop;</li>
+    <li>your name and address are removed before anything is kept, and the email text is erased when you finish the review;</li>
+    <li>only the items you add are saved, in your own Google Sheet.</li>
+  </ul>
+  <p>Nothing from your emails is sent to AlephB or to any other service. So that the next import can carry on where this one ended, Chrome keeps the address of the Gmail account you imported from, the date of that import and the IDs of the emails already read, never their content. You can stop at any time.</p>
 
-  <h2>Limited Use</h2>
+  <h2>Chrome's built-in AI model</h2>
+  <p>When your computer can run it, Chrome's built-in AI model (Gemini Nano) reads order emails during an import, reads a shop's order page when the extension can't read it by its structure, and finds a garment's colour in its name. It runs on your computer and nothing it reads leaves it. Personal details (name, address, email, phone number, card digits) are removed from order pages and emails before the model sees them. Chrome downloads the model once, after you click to start it.</p>
+
+  <h2>Google data: one file in your Drive</h2>
+  <p>When you sign in with Google, you allow the extension to see, create and edit only the Google Drive files it creates (the <code>drive.file</code> permission). It creates one Google Sheet called "What's my size" in your Drive and reads and writes that Sheet only. It cannot see your other files. If that Sheet goes missing later, it uses the latest Sheet it created, or creates a new one.</p>
+  <p>The Sheet holds your garments (brand, item, category, size, colour, fit, status, purchase date, store, order number, links to the photo, product page or order email, your notes), their size charts, your brands and their shops, your stores with their account and order pages, and your wishlist (product, price, link, recommended size). It goes from your browser straight to Google. Nobody at AlephB reads it.</p>
+  <p>The use of information received from Google APIs will adhere to the Chrome Web Store User Data Policy, including the Limited Use requirements.</p>
   <p>What's my size?'s use and transfer to any other app of information received from Google APIs will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the Limited Use requirements.</p>
-  <ul>
-    <li>Google data is used only for the features above.</li>
-    <li>It is shared only with Anthropic or Google Gemini, and only for the feature named above.</li>
-    <li>It is never sold and never used for advertising.</li>
-    <li>Nobody reads it, and AlephB never sees it.</li>
-  </ul>
+  <p>Your Google data is used only to show your wardrobe and recommend sizes. It is never sold, never used for advertising or to judge creditworthiness, and never shared with anyone. No person reads it.</p>
+
+  <h2>What stays in Chrome</h2>
+  <p>Chrome keeps a copy of your Sheet while it is open, so the size panel opens quickly, and erases it when you quit Chrome or the extension updates. Your settings stay in Chrome on your computer: hidden sites, the mannequin, the interface language, the statistics switch and your Sheet's ID. So do shop logos, a 30-day log of the colours and photos the extension filled in by itself, and, if you take the colour check on the Your colours page, its answers (skin depth, undertone, contrast). Those answers never go to your Sheet or anywhere else.</p>
+
+  <h2>Anonymous statistics</h2>
+  <p>To see which features are used, the extension counts a few actions: size panel opened, garment added (and whether it came from a product page, by hand, from an order page or from Gmail), fit labelled, order imported, and a computer that can't run Chrome's built-in model. Each count goes to Umami Cloud with the interface language and nothing else: no identifier, no cookie, never the page you are on, the garment or the shop. Umami does not store your IP address. The counts are on by default and you can switch them off during setup or in Options. This is anonymous audience measurement under the conditions the French data protection authority (CNIL) sets for it.</p>
+  <p>The Chrome Web Store also shows us install and user numbers; the extension sends nothing for those.</p>
+
+  <h2>Nothing else</h2>
+  <p>There is no AlephB account and no AlephB server. The extension uses no Google Analytics and no advertising, and it sends nothing to any online AI service. Apart from Google (your Sheet) and Umami (the counts), it contacts only the shop sites you open or allow, and Gmail when you import.</p>
 
   <h2>Deleting your data</h2>
-  <p>Removing the extension deletes what it keeps in your browser. Your spreadsheet and outfit folder are yours to keep or delete in Google Drive. You can revoke its access to your Google account at <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>.</p>
+  <ol>
+    <li>In the extension's Options, press Disconnect. This empties the copy in Chrome, clears what Chrome keeps about your garments and removes the extension's access to your Google account.</li>
+    <li>Delete the "What's my size" Sheet in Google Drive.</li>
+  </ol>
+  <p>You can also remove the extension's access at <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>. Removing the extension from Chrome deletes everything it keeps in Chrome. AlephB holds no data about you, so there is nothing to delete on our side.</p>
 
   <h2>Contact</h2>
-  <p>Questions: <a href="mailto:contact@alephb.uk">contact@alephb.uk</a>. If this policy changes, the date above changes with it.</p>
+  <p>Questions: <a href="mailto:contact@alephb.uk">contact@alephb.uk</a>. Publisher: AlephB. If this policy changes, the date above changes with it.</p>
+
+  <hr>
+
+  <div id="fr" lang="fr">
+  <h1>Politique de confidentialité</h1>
+  <p class="date">What's my size? · Dernière mise à jour : 25 octobre 2026</p>
+
+  <p>What's my size? est une extension Chrome éditée par AlephB. Elle indique la taille à prendre sur les pages produit de vêtements en comparant le vêtement à ceux que vous avez déjà. Votre garde-robe est enregistrée dans un Google Sheet de votre propre Google Drive. AlephB n'a pas de serveur pour cette extension et ne reçoit jamais votre garde-robe, vos e-mails ni les pages que vous visitez. L'extension n'affiche aucune publicité.</p>
+
+  <h2>Ce qu'elle lit sur les sites</h2>
+  <p>L'extension regarde chaque page que vous ouvrez pour savoir si c'est la page d'un vêtement ou une page de commandes d'une boutique. Sur les autres pages, elle s'arrête là.</p>
+  <ul>
+    <li>Sur la page d'un vêtement, elle lit dans votre navigateur le guide des tailles, le nom du produit, la marque, la photo, le prix et les tailles en vente, pour vous indiquer la taille à prendre.</li>
+    <li>Quand vous appuyez sur Ajouter à ma garde-robe, Liste d'envies ou Enregistrer ce guide des tailles dans le panneau, elle enregistre ce vêtement (et son guide des tailles) dans votre Sheet.</li>
+    <li>Quand vous appuyez sur « Ajouter cette commande à ma garde-robe » sur la page de commandes d'une boutique, ou sur « Lire mes commandes » dans la page Boutiques, elle lit les pages de commandes de cette boutique avec la session que vous avez ouverte vous-même. Vous vérifiez les lignes avant tout enregistrement.</li>
+  </ul>
+  <p>L'extension ne voit jamais vos mots de passe : vous vous connectez vous-même aux boutiques.</p>
+
+  <h2>Accès aux sites des boutiques</h2>
+  <p>Certaines fonctions chargent les pages d'une boutique en arrière-plan. Chrome vous demande d'abord l'accès, un site à la fois, au moment où vous cliquez pour :</p>
+  <ul>
+    <li>lire vos commandes sur le site d'une boutique, ou trouver la page qui les liste ;</li>
+    <li>trouver la photo d'un vêtement, ou le comparer à sa page produit (Vérifier en ligne), sur la boutique où vous l'avez acheté ou sur celle de la marque ;</li>
+    <li>afficher le logo d'une boutique.</li>
+  </ul>
+  <p>Sur les sites que vous avez déjà autorisés, et seulement là, l'extension peut aussi faire ces recherches pour quelques nouveaux vêtements par jour. Elle lit les données produit que la boutique publie (noms, couleurs, tailles, photos). Rien de ce qu'elle trouve n'est écrit dans votre Sheet sans votre accord, sauf une couleur ou une photo manquante placée dans une case vide, que vous pouvez annuler depuis la liste À faire de la garde-robe.</p>
+
+  <h2>Importer vos e-mails de commande depuis Gmail</h2>
+  <p>L'extension ne demande aucune autorisation Gmail à Google. Quand vous choisissez d'importer, elle ouvre Gmail dans un onglet de votre propre navigateur, connecté à votre compte, et lit cet onglet comme vous le feriez. Une fois que vous avez accepté le fonctionnement et appuyé sur Démarrer :</p>
+  <ul>
+    <li>elle cherche vos e-mails de commande et de retour (ceux des deux dernières années la première fois, puis seulement les plus récents) ;</li>
+    <li>le modèle d'IA intégré à Chrome lit, sur votre ordinateur, les e-mails qui indiquent une taille de vêtement et y trouve la marque, la taille, la couleur, la date et la boutique de chaque article ;</li>
+    <li>votre nom et votre adresse sont retirés avant que quoi que ce soit soit gardé, et le texte des e-mails est effacé quand vous terminez la vérification ;</li>
+    <li>seuls les articles que vous ajoutez sont enregistrés, dans votre propre Google Sheet.</li>
+  </ul>
+  <p>Rien de vos e-mails n'est envoyé à AlephB ni à aucun autre service. Pour que l'import suivant reprenne là où celui-ci s'est arrêté, Chrome garde l'adresse du compte Gmail importé, la date de cet import et les identifiants des e-mails déjà lus, jamais leur contenu. Vous pouvez arrêter à tout moment.</p>
+
+  <h2>Le modèle d'IA intégré à Chrome</h2>
+  <p>Si votre ordinateur peut le faire tourner, le modèle d'IA intégré à Chrome (Gemini Nano) lit les e-mails de commande pendant un import, lit la page de commandes d'une boutique quand l'extension ne sait pas la lire par sa structure, et trouve la couleur d'un vêtement dans son nom. Il tourne sur votre ordinateur, et rien de ce qu'il lit n'en sort. Les données personnelles (nom, adresse, e-mail, téléphone, chiffres de carte) sont retirées des pages de commandes et des e-mails avant que le modèle les voie. Chrome télécharge le modèle une fois, après votre clic pour le lancer.</p>
+
+  <h2>Données Google : un seul fichier dans votre Drive</h2>
+  <p>En vous connectant avec Google, vous autorisez l'extension à voir, créer et modifier uniquement les fichiers Google Drive qu'elle crée (l'autorisation <code>drive.file</code>). Elle crée un Google Sheet nommé « What's my size » dans votre Drive, puis lit et écrit ce seul Sheet. Elle ne voit pas vos autres fichiers. Si ce Sheet disparaît plus tard, elle reprend le dernier Sheet qu'elle a créé, ou en crée un nouveau.</p>
+  <p>Le Sheet contient vos vêtements (marque, article, catégorie, taille, couleur, coupe, statut, date d'achat, boutique, numéro de commande, liens vers la photo, la page produit ou l'e-mail de commande, vos notes), leurs guides des tailles, vos marques et leurs boutiques, vos boutiques avec leurs pages de compte et de commandes, et votre liste d'envies (produit, prix, lien, taille conseillée). Il va de votre navigateur directement chez Google. Personne chez AlephB ne le lit.</p>
+  <p lang="en">The use of information received from Google APIs will adhere to the Chrome Web Store User Data Policy, including the Limited Use requirements.</p>
+  <p lang="en">What's my size?'s use and transfer to any other app of information received from Google APIs will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the Limited Use requirements.</p>
+  <p>Concrètement : vos données Google servent uniquement à afficher votre garde-robe et à recommander des tailles. Elles ne sont jamais vendues, jamais utilisées pour de la publicité ni pour juger d'une solvabilité, et jamais partagées. Personne ne les lit.</p>
+
+  <h2>Ce qui reste dans Chrome</h2>
+  <p>Chrome garde une copie de votre Sheet tant qu'il est ouvert, pour que le panneau des tailles s'ouvre vite, et l'efface quand vous quittez Chrome ou quand l'extension se met à jour. Vos réglages restent dans Chrome, sur votre ordinateur : sites masqués, silhouette, langue de l'interface, statistiques activées ou non, identifiant de votre Sheet. Y restent aussi les logos des boutiques, un journal de 30 jours des couleurs et photos que l'extension a remplies d'elle-même et, si vous faites le test de la page Vos couleurs, ses réponses (carnation, sous-ton, contraste). Ces réponses ne vont jamais dans votre Sheet ni ailleurs.</p>
+
+  <h2>Statistiques anonymes</h2>
+  <p>Pour savoir quelles fonctions servent, l'extension compte quelques actions : panneau des tailles ouvert, vêtement ajouté (et s'il vient d'une page produit, de la saisie à la main, d'une page de commandes ou de Gmail), coupe indiquée, commande importée, et un ordinateur qui ne peut pas faire tourner le modèle intégré à Chrome. Chaque comptage part chez Umami Cloud avec la langue de l'interface et rien d'autre : sans identifiant, sans cookie, jamais avec la page où vous êtes, le vêtement ou la boutique. Umami ne conserve pas votre adresse IP. Ces statistiques sont activées par défaut ; vous pouvez les désactiver pendant la configuration ou dans les Options. Il s'agit d'une mesure d'audience anonyme dans les conditions fixées par la CNIL.</p>
+  <p>Le Chrome Web Store nous montre aussi le nombre d'installations et d'utilisateurs ; l'extension n'envoie rien pour cela.</p>
+
+  <h2>Rien d'autre</h2>
+  <p>Pas de compte AlephB, pas de serveur AlephB. Pas de Google Analytics, pas de publicité, aucun envoi à un service d'IA en ligne. En dehors de Google (votre Sheet) et d'Umami (les comptages), l'extension ne contacte que les boutiques que vous ouvrez ou autorisez, et Gmail quand vous importez.</p>
+
+  <h2>Supprimer vos données</h2>
+  <ol>
+    <li>Dans les Options de l'extension, appuyez sur Se déconnecter. La copie dans Chrome est vidée, ce que Chrome garde sur vos vêtements est effacé et l'accès de l'extension à votre compte Google est retiré.</li>
+    <li>Supprimez le Sheet « What's my size » dans Google Drive.</li>
+  </ol>
+  <p>Vous pouvez aussi retirer l'accès de l'extension sur <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>. Retirer l'extension de Chrome supprime tout ce qu'elle garde dans Chrome. AlephB ne détient aucune donnée sur vous : il n'y a rien à supprimer de notre côté.</p>
+
+  <h2>Contact</h2>
+  <p>Questions : <a href="mailto:contact@alephb.uk">contact@alephb.uk</a>. Éditeur : AlephB. Si cette politique change, la date ci-dessus change aussi.</p>
+  </div>
 
   <footer><a href="./">What's my size?</a> · By <a href="https://alephb.uk">AlephB</a> · <a href="mailto:contact@alephb.uk">contact@alephb.uk</a></footer>
 </main>
