@@ -30,10 +30,10 @@ a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
 <body>
 <main>
   <h1>Privacy policy</h1>
-  <p class="date">What's my size? · Last updated 25 October 2026</p>
+  <p class="date">What's my size? · Last updated 26 October 2026</p>
   <p class="lang"><a href="#fr" hreflang="fr">Lire en français</a></p>
 
-  <p>What's my size? is a Chrome extension made by AlephB. It shows which size to buy on clothing product pages by comparing the garment with clothes you already own. Your wardrobe is kept in a Google Sheet in your own Google Drive. AlephB has no server for this extension and never receives your wardrobe, your emails or the pages you visit. The extension shows no ads.</p>
+  <p>What's my size? is a Chrome extension made by AlephB. It shows which size to buy on clothing product pages by comparing the garment with clothes you already own. Your wardrobe is kept in a Google Sheet in your own Google Drive. AlephB has no server for this extension and never receives your wardrobe, your emails or the pages you visit. The one thing AlephB receives is a message you send with the Feedback form. The extension shows no ads.</p>
 
   <h2>What it reads on websites</h2>
   <p>The extension looks at each page you open to tell whether it is a clothing product page or a shop's order page. On any other page it stops there.</p>
@@ -77,11 +77,14 @@ a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
   <p>Chrome keeps a copy of your Sheet while it is open, so the size panel opens quickly, and erases it when you quit Chrome or the extension updates. Your settings stay in Chrome on your computer: hidden sites, the mannequin, the interface language, the statistics switch and your Sheet's ID. So do shop logos, a 30-day log of the colours and photos the extension filled in by itself, and, if you take the colour check on the Your colours page, its answers (skin depth, undertone, contrast). Those answers never go to your Sheet or anywhere else.</p>
 
   <h2>Anonymous statistics</h2>
-  <p>To see which features are used, the extension counts a few actions: size panel opened, garment added (and whether it came from a product page, by hand, from an order page or from Gmail), fit labelled, order imported, and a computer that can't run Chrome's built-in model. Each count goes to Umami Cloud with the interface language and nothing else: no identifier, no cookie, never the page you are on, the garment or the shop. Umami does not store your IP address. The counts are on by default and you can switch them off during setup or in Options. This is anonymous audience measurement under the conditions the French data protection authority (CNIL) sets for it.</p>
+  <p>To see which features are used, the extension counts a few actions: size panel opened, garment added (and whether it came from a product page, by hand, from an order page or from Gmail), fit labelled, order imported, feedback sent, and a computer that can't run Chrome's built-in model. Each count goes to Umami Cloud with the interface language and nothing else: no identifier, no cookie, never the page you are on, the garment or the shop. Umami does not store your IP address. The counts are on by default and you can switch them off during setup or in Options. This is anonymous audience measurement under the conditions the French data protection authority (CNIL) sets for it.</p>
   <p>The Chrome Web Store also shows us install and user numbers; the extension sends nothing for those.</p>
 
+  <h2>Feedback</h2>
+  <p>The Feedback button on every page and in the size panel opens a small form. Nothing is sent until you press Send. Then the extension sends your message, the email address if you gave one, the name of the page you were on (such as /wardrobe#brands or /size-panel; the shop's address is not sent), and the extension's version, edition, Chrome version and interface language. They go to a Google Apps Script that adds one row to AlephB's Google Sheet, with the time it arrived. Only AlephB reads it. The email is there so we can answer you. Leave it empty if you don't want an answer. Please don't put other personal details in the message. To have a message deleted, write to <a href="mailto:contact@alephb.uk">contact@alephb.uk</a>.</p>
+
   <h2>Nothing else</h2>
-  <p>There is no AlephB account and no AlephB server. The extension uses no Google Analytics and no advertising, and it sends nothing to any online AI service. Apart from Google (your Sheet) and Umami (the counts), it contacts only the shop sites you open or allow, and Gmail when you import.</p>
+  <p>There is no AlephB account and no AlephB server. The extension uses no Google Analytics and no advertising, and it sends nothing to any online AI service. Apart from Google (your Sheet, and the Feedback form's script when you press Send) and Umami (the counts), it contacts only the shop sites you open or allow, and Gmail when you import.</p>
 
   <h2>Deleting your data</h2>
   <ol>
@@ -97,9 +100,9 @@ a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
 
   <div id="fr" lang="fr">
   <h1>Politique de confidentialité</h1>
-  <p class="date">What's my size? · Dernière mise à jour : 25 octobre 2026</p>
+  <p class="date">What's my size? · Dernière mise à jour : 26 octobre 2026</p>
 
-  <p>What's my size? est une extension Chrome éditée par AlephB. Elle indique la taille à prendre sur les pages produit de vêtements en comparant le vêtement à ceux que vous avez déjà. Votre garde-robe est enregistrée dans un Google Sheet de votre propre Google Drive. AlephB n'a pas de serveur pour cette extension et ne reçoit jamais votre garde-robe, vos e-mails ni les pages que vous visitez. L'extension n'affiche aucune publicité.</p>
+  <p>What's my size? est une extension Chrome éditée par AlephB. Elle indique la taille à prendre sur les pages produit de vêtements en comparant le vêtement à ceux que vous avez déjà. Votre garde-robe est enregistrée dans un Google Sheet de votre propre Google Drive. AlephB n'a pas de serveur pour cette extension et ne reçoit jamais votre garde-robe, vos e-mails ni les pages que vous visitez. La seule chose qu'AlephB reçoit est un message que vous envoyez avec le formulaire « Votre avis ». L'extension n'affiche aucune publicité.</p>
 
   <h2>Ce qu'elle lit sur les sites</h2>
   <p>L'extension regarde chaque page que vous ouvrez pour savoir si c'est la page d'un vêtement ou une page de commandes d'une boutique. Sur les autres pages, elle s'arrête là.</p>
@@ -143,11 +146,14 @@ a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
   <p>Chrome garde une copie de votre Sheet tant qu'il est ouvert, pour que le panneau des tailles s'ouvre vite, et l'efface quand vous quittez Chrome ou quand l'extension se met à jour. Vos réglages restent dans Chrome, sur votre ordinateur : sites masqués, silhouette, langue de l'interface, statistiques activées ou non, identifiant de votre Sheet. Y restent aussi les logos des boutiques, un journal de 30 jours des couleurs et photos que l'extension a remplies d'elle-même et, si vous faites le test de la page Vos couleurs, ses réponses (carnation, sous-ton, contraste). Ces réponses ne vont jamais dans votre Sheet ni ailleurs.</p>
 
   <h2>Statistiques anonymes</h2>
-  <p>Pour savoir quelles fonctions servent, l'extension compte quelques actions : panneau des tailles ouvert, vêtement ajouté (et s'il vient d'une page produit, de la saisie à la main, d'une page de commandes ou de Gmail), coupe indiquée, commande importée, et un ordinateur qui ne peut pas faire tourner le modèle intégré à Chrome. Chaque comptage part chez Umami Cloud avec la langue de l'interface et rien d'autre : sans identifiant, sans cookie, jamais avec la page où vous êtes, le vêtement ou la boutique. Umami ne conserve pas votre adresse IP. Ces statistiques sont activées par défaut ; vous pouvez les désactiver pendant la configuration ou dans les Options. Il s'agit d'une mesure d'audience anonyme dans les conditions fixées par la CNIL.</p>
+  <p>Pour savoir quelles fonctions servent, l'extension compte quelques actions : panneau des tailles ouvert, vêtement ajouté (et s'il vient d'une page produit, de la saisie à la main, d'une page de commandes ou de Gmail), coupe indiquée, commande importée, avis envoyé, et un ordinateur qui ne peut pas faire tourner le modèle intégré à Chrome. Chaque comptage part chez Umami Cloud avec la langue de l'interface et rien d'autre : sans identifiant, sans cookie, jamais avec la page où vous êtes, le vêtement ou la boutique. Umami ne conserve pas votre adresse IP. Ces statistiques sont activées par défaut ; vous pouvez les désactiver pendant la configuration ou dans les Options. Il s'agit d'une mesure d'audience anonyme dans les conditions fixées par la CNIL.</p>
   <p>Le Chrome Web Store nous montre aussi le nombre d'installations et d'utilisateurs ; l'extension n'envoie rien pour cela.</p>
 
+  <h2>Votre avis</h2>
+  <p>Le bouton « Votre avis », sur chaque page et dans le panneau des tailles, ouvre un petit formulaire. Rien n'est envoyé avant que vous appuyiez sur Envoyer. L'extension envoie alors votre message, l'adresse e-mail si vous en avez donné une, le nom de la page où vous étiez (par exemple /wardrobe#brands, ou /size-panel ; jamais l'adresse de la boutique), ainsi que sa version, son édition, la version de Chrome et la langue de l'interface. Ils vont à un Google Apps Script qui ajoute une ligne au Google Sheet d'AlephB, avec l'heure d'arrivée. Seul AlephB le lit. L'e-mail sert à vous répondre. Laissez-le vide si vous ne voulez pas de réponse. Merci de ne pas mettre d'autres données personnelles dans le message. Pour faire supprimer un message, écrivez à <a href="mailto:contact@alephb.uk">contact@alephb.uk</a>.</p>
+
   <h2>Rien d'autre</h2>
-  <p>Pas de compte AlephB, pas de serveur AlephB. Pas de Google Analytics, pas de publicité, aucun envoi à un service d'IA en ligne. En dehors de Google (votre Sheet) et d'Umami (les comptages), l'extension ne contacte que les boutiques que vous ouvrez ou autorisez, et Gmail quand vous importez.</p>
+  <p>Pas de compte AlephB, pas de serveur AlephB. Pas de Google Analytics, pas de publicité, aucun envoi à un service d'IA en ligne. En dehors de Google (votre Sheet, et le script du formulaire « Votre avis » quand vous appuyez sur Envoyer) et d'Umami (les comptages), l'extension ne contacte que les boutiques que vous ouvrez ou autorisez, et Gmail quand vous importez.</p>
 
   <h2>Supprimer vos données</h2>
   <ol>
