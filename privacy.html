@@ -40,7 +40,7 @@ a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
   <ul>
     <li>On a product page, it reads the size chart, the product's name, brand, photo, price and the sizes on sale, in your browser, to show you which size to take.</li>
     <li>When you press Add to wardrobe, Wishlist or Save this chart in the size panel, it saves that garment (and its size chart) to your Sheet.</li>
-    <li>When you press "Add this order to my wardrobe" on a shop's order page, or "Read my orders" on the Stores page, it reads that shop's order pages using the session you signed in to yourself. You check the lines before anything is saved.</li>
+    <li>When you press "Add this order to my wardrobe" on a shop's order page, or "Read my orders" on the Stores page, it reads that shop's order pages through the session you opened by signing in yourself. You check the lines before anything is saved.</li>
   </ul>
   <p>The extension never sees your passwords. You sign in to shops yourself.</p>
 
@@ -54,14 +54,14 @@ a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
   <p>On sites you have already allowed, and only there, the extension may also run these lookups for a few new garments a day. It reads the product data the shop publishes (names, colours, sizes, photos). Nothing it finds is written to your Sheet until you accept it, except a missing colour or photo put into an empty cell, which you can undo from the wardrobe's To do list.</p>
 
   <h2>Importing order emails from Gmail</h2>
-  <p>The extension asks Google for no Gmail permission. When you choose to import, it opens Gmail in a tab of your own browser, signed in as you, and reads that tab the way you would. Once you have agreed to how it works and pressed Start:</p>
+  <p>The extension does not ask Google for any Gmail permission. When you choose to import, it opens Gmail in a tab of your own browser, signed in as you, and reads that tab the way you would. Once you have agreed to how it works and pressed Start:</p>
   <ul>
     <li>it looks for order and return emails (from the last two years the first time, then only newer ones);</li>
     <li>Chrome's built-in AI model reads the emails that mention a clothing size, on your computer, and finds each item's brand, size, colour, date and shop;</li>
     <li>your name and address are removed before anything is kept, and the email text is erased when you finish the review;</li>
     <li>only the items you add are saved, in your own Google Sheet.</li>
   </ul>
-  <p>Nothing from your emails is sent to AlephB or to any other service. So that the next import can carry on where this one ended, Chrome keeps the address of the Gmail account you imported from, the date of that import and the IDs of the emails already read, never their content. You can stop at any time.</p>
+  <p>Nothing from your emails is sent to AlephB or to any other service. So that the next import can carry on where this one ended, Chrome keeps the address of the Gmail account you imported from, the date of that import and the IDs of the emails already read. It does not keep their content. You can stop at any time.</p>
 
   <h2>Chrome's built-in AI model</h2>
   <p>When your computer can run it, Chrome's built-in AI model (Gemini Nano) reads order emails during an import, reads a shop's order page when the extension can't read it by its structure, and finds a garment's colour in its name. It runs on your computer and nothing it reads leaves it. Personal details (name, address, email, phone number, card digits) are removed from order pages and emails before the model sees them. Chrome downloads the model once, after you click to start it.</p>
@@ -74,10 +74,10 @@ a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
   <p>Your Google data is used only to show your wardrobe and recommend sizes. It is never sold, never used for advertising or to judge creditworthiness, and never shared with anyone. No person reads it.</p>
 
   <h2>What stays in Chrome</h2>
-  <p>Chrome keeps a copy of your Sheet while it is open, so the size panel opens quickly, and erases it when you quit Chrome or the extension updates. Your settings stay in Chrome on your computer: hidden sites, the mannequin, the interface language, the statistics switch and your Sheet's ID. So do shop logos, a 30-day log of the colours and photos the extension filled in by itself, and, if you take the colour check on the Your colours page, its answers (skin depth, undertone, contrast). Those answers never go to your Sheet or anywhere else.</p>
+  <p>While Chrome is open, it keeps a copy of your Sheet so the size panel opens quickly. It erases that copy when you quit Chrome or when the extension updates. Your settings stay in Chrome on your computer: hidden sites, the mannequin, the interface language, the statistics switch and your Sheet's ID. So do shop logos, a 30-day log of the colours and photos the extension filled in by itself, and, if you take the colour check on the Your colours page, its answers (skin depth, undertone, contrast). Those answers never go to your Sheet or anywhere else.</p>
 
   <h2>Anonymous statistics</h2>
-  <p>To see which features are used, the extension counts a few actions: size panel opened, garment added (and whether it came from a product page, by hand, from an order page or from Gmail), fit labelled, order imported, feedback sent, and a computer that can't run Chrome's built-in model. Each count goes to Umami Cloud with the interface language and nothing else: no identifier, no cookie, never the page you are on, the garment or the shop. Umami does not store your IP address. The counts are on by default and you can switch them off during setup or in Options. This is anonymous audience measurement under the conditions the French data protection authority (CNIL) sets for it.</p>
+  <p>To see which features are used, the extension counts a few actions: size panel opened, garment added (and whether it came from a product page, by hand, from an order page or from Gmail), fit labelled, order imported, feedback sent, and a computer that can't run Chrome's built-in model. Each count goes to Umami Cloud with the interface language and nothing else. It carries no identifier and no cookie, and it never says which page you are on, which garment or which shop. Umami does not store your IP address. The counts are on by default and you can switch them off during setup or in Options. This is anonymous audience measurement under the conditions the French data protection authority (CNIL) sets for it.</p>
   <p>The Chrome Web Store also shows us install and user numbers; the extension sends nothing for those.</p>
 
   <h2>Feedback</h2>
@@ -109,7 +109,7 @@ a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
   <ul>
     <li>Sur la page d'un vêtement, elle lit dans votre navigateur le guide des tailles, le nom du produit, la marque, la photo, le prix et les tailles en vente, pour vous indiquer la taille à prendre.</li>
     <li>Quand vous appuyez sur Ajouter à ma garde-robe, Liste d'envies ou Enregistrer ce guide des tailles dans le panneau, elle enregistre ce vêtement (et son guide des tailles) dans votre Sheet.</li>
-    <li>Quand vous appuyez sur « Ajouter cette commande à ma garde-robe » sur la page de commandes d'une boutique, ou sur « Lire mes commandes » dans la page Boutiques, elle lit les pages de commandes de cette boutique avec la session que vous avez ouverte vous-même. Vous vérifiez les lignes avant tout enregistrement.</li>
+    <li>Quand vous appuyez sur « Ajouter cette commande à ma garde-robe » sur la page de commandes d'une boutique, ou sur « Lire mes commandes » dans la page Boutiques, elle lit les pages de commandes de cette boutique avec la session que vous avez ouverte vous-même en vous connectant. Vous vérifiez les lignes avant tout enregistrement.</li>
   </ul>
   <p>L'extension ne voit jamais vos mots de passe : vous vous connectez vous-même aux boutiques.</p>
 
@@ -127,10 +127,10 @@ a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
   <ul>
     <li>elle cherche vos e-mails de commande et de retour (ceux des deux dernières années la première fois, puis seulement les plus récents) ;</li>
     <li>le modèle d'IA intégré à Chrome lit, sur votre ordinateur, les e-mails qui indiquent une taille de vêtement et y trouve la marque, la taille, la couleur, la date et la boutique de chaque article ;</li>
-    <li>votre nom et votre adresse sont retirés avant que quoi que ce soit soit gardé, et le texte des e-mails est effacé quand vous terminez la vérification ;</li>
+    <li>votre nom et votre adresse sont retirés avant que la moindre donnée soit conservée, et le texte des e-mails est effacé quand vous terminez la vérification ;</li>
     <li>seuls les articles que vous ajoutez sont enregistrés, dans votre propre Google Sheet.</li>
   </ul>
-  <p>Rien de vos e-mails n'est envoyé à AlephB ni à aucun autre service. Pour que l'import suivant reprenne là où celui-ci s'est arrêté, Chrome garde l'adresse du compte Gmail importé, la date de cet import et les identifiants des e-mails déjà lus, jamais leur contenu. Vous pouvez arrêter à tout moment.</p>
+  <p>Rien de vos e-mails n'est envoyé à AlephB ni à aucun autre service. Pour que l'import suivant reprenne là où celui-ci s'est arrêté, Chrome garde l'adresse du compte Gmail importé, la date de cet import et les identifiants des e-mails déjà lus. Il n'en garde pas le contenu. Vous pouvez arrêter à tout moment.</p>
 
   <h2>Le modèle d'IA intégré à Chrome</h2>
   <p>Si votre ordinateur peut le faire tourner, le modèle d'IA intégré à Chrome (Gemini Nano) lit les e-mails de commande pendant un import, lit la page de commandes d'une boutique quand l'extension ne sait pas la lire par sa structure, et trouve la couleur d'un vêtement dans son nom. Il tourne sur votre ordinateur, et rien de ce qu'il lit n'en sort. Les données personnelles (nom, adresse, e-mail, téléphone, chiffres de carte) sont retirées des pages de commandes et des e-mails avant que le modèle les voie. Chrome télécharge le modèle une fois, après votre clic pour le lancer.</p>
@@ -140,20 +140,20 @@ a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
   <p>Le Sheet contient vos vêtements (marque, article, catégorie, taille, couleur, coupe, statut, date d'achat, boutique, numéro de commande, liens vers la photo, la page produit ou l'e-mail de commande, vos notes), leurs guides des tailles, vos marques et leurs boutiques, vos boutiques avec leurs pages de compte et de commandes, et votre liste d'envies (produit, prix, lien, taille conseillée). Il va de votre navigateur directement chez Google. Personne chez AlephB ne le lit.</p>
   <p lang="en">The use of information received from Google APIs will adhere to the Chrome Web Store User Data Policy, including the Limited Use requirements.</p>
   <p lang="en">What's my size?'s use and transfer to any other app of information received from Google APIs will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the Limited Use requirements.</p>
-  <p>Concrètement : vos données Google servent uniquement à afficher votre garde-robe et à recommander des tailles. Elles ne sont jamais vendues, jamais utilisées pour de la publicité ni pour juger d'une solvabilité, et jamais partagées. Personne ne les lit.</p>
+  <p>Vos données Google servent uniquement à afficher votre garde-robe et à recommander des tailles. Elles ne sont jamais vendues, jamais utilisées pour de la publicité ni pour juger d'une solvabilité, et jamais partagées. Personne ne les lit.</p>
 
   <h2>Ce qui reste dans Chrome</h2>
-  <p>Chrome garde une copie de votre Sheet tant qu'il est ouvert, pour que le panneau des tailles s'ouvre vite, et l'efface quand vous quittez Chrome ou quand l'extension se met à jour. Vos réglages restent dans Chrome, sur votre ordinateur : sites masqués, silhouette, langue de l'interface, statistiques activées ou non, identifiant de votre Sheet. Y restent aussi les logos des boutiques, un journal de 30 jours des couleurs et photos que l'extension a remplies d'elle-même et, si vous faites le test de la page Vos couleurs, ses réponses (carnation, sous-ton, contraste). Ces réponses ne vont jamais dans votre Sheet ni ailleurs.</p>
+  <p>Tant que Chrome est ouvert, il garde une copie de votre Sheet pour que le panneau des tailles s'ouvre vite. Il efface cette copie quand vous quittez Chrome ou quand l'extension se met à jour. Vos réglages restent dans Chrome, sur votre ordinateur : sites masqués, silhouette, langue de l'interface, statistiques activées ou non, identifiant de votre Sheet. Y restent aussi les logos des boutiques, un journal de 30 jours des couleurs et photos que l'extension a remplies d'elle-même et, si vous faites le test de la page Vos couleurs, ses réponses (carnation, sous-ton, contraste). Ces réponses ne vont jamais dans votre Sheet ni ailleurs.</p>
 
   <h2>Statistiques anonymes</h2>
-  <p>Pour savoir quelles fonctions servent, l'extension compte quelques actions : panneau des tailles ouvert, vêtement ajouté (et s'il vient d'une page produit, de la saisie à la main, d'une page de commandes ou de Gmail), coupe indiquée, commande importée, avis envoyé, et un ordinateur qui ne peut pas faire tourner le modèle intégré à Chrome. Chaque comptage part chez Umami Cloud avec la langue de l'interface et rien d'autre : sans identifiant, sans cookie, jamais avec la page où vous êtes, le vêtement ou la boutique. Umami ne conserve pas votre adresse IP. Ces statistiques sont activées par défaut ; vous pouvez les désactiver pendant la configuration ou dans les Options. Il s'agit d'une mesure d'audience anonyme dans les conditions fixées par la CNIL.</p>
+  <p>Pour savoir quelles fonctions servent, l'extension compte quelques actions : panneau des tailles ouvert, vêtement ajouté (et s'il vient d'une page produit, de la saisie à la main, d'une page de commandes ou de Gmail), coupe indiquée, commande importée, avis envoyé, et un ordinateur qui ne peut pas faire tourner le modèle intégré à Chrome. Chaque comptage part chez Umami Cloud avec la langue de l'interface et rien d'autre. Il ne porte ni identifiant ni cookie, et ne dit jamais la page où vous êtes, le vêtement ou la boutique. Umami ne conserve pas votre adresse IP. Ces statistiques sont activées par défaut ; vous pouvez les désactiver pendant la configuration ou dans les Options. Il s'agit d'une mesure d'audience anonyme dans les conditions fixées par la CNIL.</p>
   <p>Le Chrome Web Store nous montre aussi le nombre d'installations et d'utilisateurs ; l'extension n'envoie rien pour cela.</p>
 
   <h2>Votre avis</h2>
   <p>Le bouton « Votre avis », sur chaque page et dans le panneau des tailles, ouvre un petit formulaire. Rien n'est envoyé avant que vous appuyiez sur Envoyer. L'extension envoie alors votre message, l'adresse e-mail si vous en avez donné une, le nom de la page où vous étiez (par exemple /wardrobe#brands, ou /size-panel ; jamais l'adresse de la boutique), ainsi que sa version, son édition, la version de Chrome et la langue de l'interface. Ils vont à un Google Apps Script qui ajoute une ligne au Google Sheet d'AlephB, avec l'heure d'arrivée. Seul AlephB le lit. L'e-mail sert à vous répondre. Laissez-le vide si vous ne voulez pas de réponse. Merci de ne pas mettre d'autres données personnelles dans le message. Pour faire supprimer un message, écrivez à <a href="mailto:contact@alephb.uk">contact@alephb.uk</a>.</p>
 
   <h2>Rien d'autre</h2>
-  <p>Pas de compte AlephB, pas de serveur AlephB. Pas de Google Analytics, pas de publicité, aucun envoi à un service d'IA en ligne. En dehors de Google (votre Sheet, et le script du formulaire « Votre avis » quand vous appuyez sur Envoyer) et d'Umami (les comptages), l'extension ne contacte que les boutiques que vous ouvrez ou autorisez, et Gmail quand vous importez.</p>
+  <p>Il n'y a ni compte AlephB ni serveur AlephB. L'extension n'utilise ni Google Analytics ni publicité, et n'envoie rien à un service d'IA en ligne. En dehors de Google (votre Sheet, et le script du formulaire « Votre avis » quand vous appuyez sur Envoyer) et d'Umami (les comptages), l'extension ne contacte que les boutiques que vous ouvrez ou autorisez, et Gmail quand vous importez.</p>
 
   <h2>Supprimer vos données</h2>
   <ol>
